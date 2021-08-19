@@ -1,14 +1,7 @@
 import React from 'react';
 import { Typography, AppBar, Button, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@material-ui/core';
 import { PhotoCamera } from "@material-ui/icons"
-import { makeStyles } from "@material-ui/core/styles"
-
-const useStyles = makeStyles((theme) => ({
-    container: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8, 0, 6)
-    }
-}))
+import useStyles from './styles';
 
 const App = () => {
     const classes = useStyles();
@@ -17,7 +10,7 @@ const App = () => {
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>
-                    <PhotoCamera />
+                    <PhotoCamera className={classes.icon} />
                     <Typography variant="h6">
                         Photo Album
                     </Typography>
@@ -31,9 +24,9 @@ const App = () => {
                             Photo Album
                         </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Hello everyone
+                            Hello Everyone
                         </Typography>
-                        <div>
+                        <div className={classes.button}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
@@ -49,6 +42,20 @@ const App = () => {
                         </div>
                     </Container>
                 </div>
+                <Container className={classes.cardGrid} maxWidth='md'>
+                    <Grid container spacing={4}>
+                        <Grid item className={classes.card}>
+                            <CardMedia
+                                className={classes.cardMedia}
+                                image="https://source.unsplash.com/random"
+                                title="Image title"
+                            />
+                            <CardContent className={classes.cardContent}>
+
+                            </CardContent>
+                        </Grid>
+                    </Grid>
+                </Container>
             </main>
         </>
     )
